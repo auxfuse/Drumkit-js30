@@ -3,4 +3,11 @@ window.addEventListener("keydown", function(e){
 
     //If no audio key is hit, stop function from running.
     if(!audio) return;
+
+    //Ensure the audio has a zero tick timeout.
+    audio.currentTime = 0;
+
+    //Call function to play on `keydown` of event Listener.
+    audio.play();
 });
+

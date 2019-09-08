@@ -19,15 +19,18 @@ function playSound(e){
 
 function removeTransition(e) {
 
+    //If propertyName is not equal to transform then return and do nothing.
     if(e.propertyName !== "transform") return;
 
+    //otherwise, remove class of "playing" from key variable.
     this.classList.remove("playing");
 }
 
+//Creation of "keys" variable to hold and call all elements with the class of ".key".
 const keys = document.querySelectorAll(".key");
 
+//Loop through each key and listen for transition end and then evoke removeTransition function.
 keys.forEach(key => key.addEventListener("transitionend", removeTransition));
 
+//Event listener on keydown of keyboard to evoke playSound function.
 window.addEventListener("keydown", playSound);
-
-
